@@ -1,0 +1,76 @@
+ion-alert.custom-alert {
+    --backdrop-opacity: 0.7;
+  }
+  
+  .custom-alert .alert-button-group {
+    padding: 8px;
+  }
+  
+  button.alert-button.alert-button-confirm {
+    background-color: var(--ion-color-success);
+    color: var(--ion-color-success-contrast);
+  }
+  
+  .md button.alert-button.alert-button-confirm {
+    border-radius: 4px;
+  }
+  
+  .ios .custom-alert button.alert-button {
+    border: 0.55px solid rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.2)
+  }
+  
+  .ios button.alert-button.alert-button-cancel {
+    border-right: 0;
+    border-bottom-left-radius: 13px;
+    border-top-left-radius: 13px;
+  }
+  
+  .ios button.alert-button.alert-button-confirm {
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 13px;
+  }
+.color{
+  text-decoration-color: (255, 136, 0) ;
+}
+
+  // SCSS de la tabla
+  .header-row {
+    font-weight: 500;
+    border-bottom: 2px solid rgb(255, 136, 0);
+  }
+  .data-row{
+    border-bottom: 1px solid rgb(255, 136, 0);
+  }
+  .data-row:nth-child(even) {
+    background-color: #f8b932;
+  }
+  #grid-heading {
+    background-color: rgb(255, 136, 0);
+    border: 1px solid rgb(255, 136, 0);
+  }
+  // tabla desabilitada
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 98%;
+  
+    th {
+      background-color: rgb(255, 136, 0);
+      border: 1px solid rgb(255, 136, 0);
+    }
+    td {
+      border: 1px solid #dddddd;
+    }
+    td, th {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #4e4e4e;
+    }
+
+    .my-pagination .ngx-pagination .current {
+      background: red;
+    }
+  }

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Añadir Cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+    <ion-list>
+      
+      <ion-item>
+        <ion-label position="stacked">Cuenta</ion-label>
+        <ion-input 
+        placeholder="Cuenta"
+        name="Cuenta"
+        #campo = "ngModel"
+        [(ngModel)]="tokenCuenta.Cuenta"
+        [maxlength]="50"
+        [minlength]="3"
+        required></ion-input>
+      </ion-item>
+      <!-- <ion-text color="danger" *ngIf="campo.errors?"> El Cuenta deve tener más de 3 caracteres
+      </ion-text> -->
+
+      <ion-item >
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input 
+        placeholder="******"
+        name="Pas"
+        #direc = "ngModel"
+        [(ngModel)]="tokenCuenta.PCuenta"
+        [maxlength]="20"
+        [minlength]="4"
+        required></ion-input>
+      </ion-item>
+      <!-- <ion-text color="danger" *ngIf="direc.errors?"> Se necesita especificar más la Pas
+      </ion-text> -->
+
+      <ion-button [disabled] ="formulario.invalid"
+                  type="submit"
+                  expand="block"
+                  alertaid="present-alert">
+        Crear
+      </ion-button>
+    </ion-list>
+
+    </form>
+</ion-content>

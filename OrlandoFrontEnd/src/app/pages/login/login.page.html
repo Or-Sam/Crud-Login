@@ -1,0 +1,93 @@
+<ion-content>
+  <ion-slide class="mainSlide">
+      <ion-row>
+        <ion-col>
+          <img src="/assets/icon/usuario.png" alt="Logo Nezter">
+        </ion-col>
+      </ion-row>
+
+      <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+        <ion-grid>
+          <ion-list>
+            
+            <ion-item>
+              <ion-label position="stacked">Cuenta</ion-label>
+              <ion-input 
+              placeholder="Cuenta"
+              name="Cuenta"
+              #campo = "ngModel"
+              [(ngModel)]="tokenCuentas.Cuenta"
+              [maxlength]="50"
+              [minlength]="3"
+              required></ion-input>
+            </ion-item>
+            <!-- <ion-text color="danger" *ngIf="campo.errors?"> El Cuenta deve tener más de 3 caracteres
+            </ion-text> -->
+      
+            <ion-item >
+              <ion-label position="stacked">Contraseña</ion-label>
+              <ion-input 
+              placeholder="******"
+              name="Password"
+              #direc = "ngModel"
+              [(ngModel)]="tokenCuentas.PCuenta"
+              [maxlength]="20"
+              [minlength]="4"
+              type="password"
+              required></ion-input>
+            </ion-item>
+            <!-- <ion-text color="danger" *ngIf="direc.errors?"> Se necesita especificar más la Password
+            </ion-text> -->
+          </ion-list>
+          <ion-row>
+            <ion-col>
+              <ion-button 
+                         [disabled] ="formulario.invalid"
+                          type="submit"
+                          expand="block"
+                          alertaid="present-alert"
+                          color="primary">
+                Login
+              </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+    </ion-slide>
+
+
+</ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar>
+    
+    <ion-row>
+
+      <!-- <ion-col>
+          <ion-button shape="round"
+                      expand="full"
+                      size="small"
+                      fill="outline"
+                      color="tertiary">
+            Ingresar
+          </ion-button>
+      </ion-col> -->
+
+      <ion-col>
+        <ion-button (click)="ClickRegistrar( )"
+                    shape="round"
+                    expand="full"
+                    size="small"
+                    fill="outline"
+                    color="tertiary">
+          Registrarme
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+
+
+  </ion-toolbar>
+</ion-footer>

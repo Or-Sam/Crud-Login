@@ -1,0 +1,166 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" (click)="Alert()">Salir</ion-button>
+    <ion-button slot="end" (click)="ClickCrear( )">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row id="grid-heading" class="header-row">
+    <!-- <ion-col size="0.5">
+      #id
+    </ion-col> -->
+    <ion-col size="0.75" >
+      Nombre
+    </ion-col>
+    <ion-col size="1.25" >
+      Direccion
+    </ion-col>
+    <ion-col size="1"  >
+      Telefono
+    </ion-col>
+    <ion-col size="0.75"  >
+      Cod. Postal
+    </ion-col>
+    <ion-col size="1" >
+      Tip. Usu.
+    </ion-col>
+    <ion-col size="1" >
+      Roll
+    </ion-col>
+    <ion-col size="1.75" >
+      Estado
+    </ion-col>
+    <ion-col size="1.75" >
+      Municipio
+    </ion-col>
+    <ion-col size="1.75" >
+      Localidad
+    </ion-col>
+    <ion-col size="1" >
+      Editar/Eliminar
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let VistaCompleta of MostrarUsuarios | paginate: { itemsPerPage: 5, currentPage: page }; let i = index" class="data-row">
+    <!-- <ion-col size="0.5">{{VistaCompleta.idusuario}}</ion-col> -->
+    <ion-col size="0.75">{{VistaCompleta.nombre}}</ion-col>
+    <ion-col size="1.25"  >{{VistaCompleta.direccion}}</ion-col>
+    <ion-col size="1"  >{{VistaCompleta.telefono}}</ion-col>
+    <ion-col size="0.75">{{VistaCompleta.codpostal}}</ion-col>
+    <ion-col size="1"  >{{VistaCompleta.tipousuario}}</ion-col>
+    <ion-col size="1"  >{{VistaCompleta.roll}}</ion-col>
+    <ion-col size="1.75"  >{{VistaCompleta.entidad_federativa}}</ion-col>
+    <ion-col size="1.75">{{VistaCompleta.municipio}}</ion-col>
+    <ion-col size="1.75">{{VistaCompleta.noM_LOC}}</ion-col>
+    <ion-col size="1" >
+      <ion-button color="primary" (click)="ClickEditar(VistaCompleta.idusuario)">
+        <ion-icon  name="arrow-up-circle-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger"  (click)="presentAlert(VistaCompleta.idusuario)">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col class="color" >
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <div class="ion-padding">
+    <ngx-datatable 
+      class="material"
+      [limit]="8" 
+      [rows]="data" 
+      [rowHeight]="50" 
+      [columns]="columns"
+      [columnMode]="'force'" 
+      [sortType]="sort" 
+      [headerHeight]="50" 
+      [footerHeight]="50">
+      <ngx-datatable-column name="Actions" prop="id">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+    
+        <ion-button color="primary" (click)="ClickEditar(idusuario)">
+          <ion-icon  name="arrow-up-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" sortable="false" (click)="presentAlert(idusuario)">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+
+  <ngx-datatable class="fullscreen" 
+  [rows]="MostrarUsuarios" 
+  [columnMode]="'force'" 
+  [reorderable]="false" >
+  <ngx-datatable-column name="idusuario"> </ngx-datatable-column>
+  <ngx-datatable-column name="Nombre"> </ngx-datatable-column>
+  <ngx-datatable-column name="Direccion"> </ngx-datatable-column>
+  <ngx-datatable-column name="Telefono"> </ngx-datatable-column>
+  <ngx-datatable-column name="codpostal"> </ngx-datatable-column>
+  <ngx-datatable-column name="tipousuario"> </ngx-datatable-column>
+  <ngx-datatable-column name="Roll"> </ngx-datatable-column>
+  <ngx-datatable-column prop="entidad_federativa"> </ngx-datatable-column>
+  <ngx-datatable-column name="Municipio"> </ngx-datatable-column>
+  <ngx-datatable-column prop="noM_LOC"> </ngx-datatable-column>
+  <ngx-datatable-column name="Actions" prop="id">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+
+    <ion-button color="primary" (click)="ClickEditar(idusuario)">
+      <ion-icon  name="arrow-up-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="danger"  (click)="presentAlert(idusuario)">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ng-template>
+  </ngx-datatable-column>
+  </ngx-datatable> -->
+
+  <!-- <table class="table table-striped ion-margin | paginate: { itemsPerPage:4 , currentPage:pageActual}">
+    <thead>
+      <tr>
+        <th scope="col">#id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Cod. Postal</th>
+        <th scope="col">Tip. usu</th>
+        <th scope="col">Roll</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Municipio</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Editar/Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let VistaCompleta of MostrarUsuarios ">
+        <td>{{VistaCompleta.idusuario}}</td>
+        <td>{{VistaCompleta.nombre}}</td>
+        <td>{{VistaCompleta.direccion}}</td>
+        <td>{{VistaCompleta.telefono}}</td>
+        <td>{{VistaCompleta.codpostal}}</td>
+        <td>{{VistaCompleta.tipousuario}}</td>
+        <td>{{VistaCompleta.roll}}</td>
+        <td>{{VistaCompleta.entidad_federativa}}</td>
+        <td>{{VistaCompleta.municipio}}</td>
+        <td>{{VistaCompleta.noM_LOC}}</td>
+        <td><ion-button slot="start" (click)="ClickEditar(VistaCompleta.idusuario)">
+          <ion-icon slot="end" name="arrow-up-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-button color="danger"  (click)="presentAlert(VistaCompleta.idusuario)">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </ion-button></td>
+      </tr>
+    </tbody>
+</table> -->
+
+</ion-content>

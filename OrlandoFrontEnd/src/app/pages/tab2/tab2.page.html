@@ -1,0 +1,26 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button defaultHref="tab1"></ion-back-button>
+    </ion-buttons> -->
+    <ion-title>
+      Buscar Usuario
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-toolbar>
+  <ion-searchbar placeholder="Buscar usuario ..." 
+                  animated 
+                  debounce="700"
+                  [value]="textoBuscar"
+                  (ionChange)="buscar($event)"></ion-searchbar>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+
+
+
+</ion-content>
